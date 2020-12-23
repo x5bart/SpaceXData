@@ -25,6 +25,7 @@ class DetailFragment : Fragment() {
     private lateinit var flickrImage: ArrayList<String>
 
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -78,5 +79,7 @@ class DetailFragment : Fragment() {
             }
         })
     }
+
+
 
 }

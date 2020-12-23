@@ -14,7 +14,10 @@ import com.exampler.spacexdata.activity.TAG
 import com.exampler.spacexdata.model.CurrentLauncher
 
 
-class LauncherViewAdapter(private val list: ArrayList<CurrentLauncher>, private val context: Context) :
+class LauncherViewAdapter(
+    private val list: ArrayList<CurrentLauncher>,
+    private val context: Context
+) :
     RecyclerView.Adapter<LauncherViewHolder>() {
 
 
@@ -46,11 +49,15 @@ class LauncherViewAdapter(private val list: ArrayList<CurrentLauncher>, private 
             bundle.putString("img", list.links.image)
             bundle.putString("detail", list.details)
             bundle.putString("video", list.links.video)
-            bundle.putStringArrayList("flickrImage",list.links.flickrImage)
+            bundle.putStringArrayList("flickrImage", list.links.flickrImage)
 
             fragment.arguments = bundle
             val fragmentManager =
                 (context as MainActivity).supportFragmentManager.beginTransaction()
+            fragmentManager.setCustomAnimations(
+                R.anim.slide_in_left,
+                R.anim.slide_in_right
+            )
             fragmentManager.addToBackStack("list")
             fragmentManager.replace(R.id.fragment_container, fragment)
             fragmentManager.commit()
