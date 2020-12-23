@@ -35,6 +35,7 @@ class ListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
+        retainInstance = true
         binding = FragmentListBinding.inflate(layoutInflater, null, false)
         return binding.root
     }
